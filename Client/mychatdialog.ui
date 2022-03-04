@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MyChatDialog</class>
+ <widget class="QDialog" name="MyChatDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>300</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MyChatDialog</string>
+  </property>
+  <widget class="QPushButton" name="icon">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/tx/13.png</normaloff>:/tx/13.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="username">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>211</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>隔壁老王</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sign">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>40</y>
+     <width>211</width>
+     <height>28</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tw_page">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>281</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page_friend">
+    <attribute name="title">
+     <string> 好友 </string>
+    </attribute>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>271</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>271</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>3</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>3</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="friend_list" native="true"/>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>415</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_group">
+    <attribute name="title">
+     <string> 群组 </string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="page_space">
+    <attribute name="title">
+     <string> 空间 </string>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pb_menu">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>560</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_tool1">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>560</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_tool2">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>560</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_tool3">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>560</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

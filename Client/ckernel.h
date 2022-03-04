@@ -1,9 +1,12 @@
 #ifndef CKERNEL_H
 #define CKERNEL_H
 
+
+
 #include <QObject>
-#include "dialog.h"
+#include "mychatdialog.h"
 #include "logindialog.h"
+#include "useritem.h"
 #include "INetMediator.h"
 #include "packdef.h"
 
@@ -34,7 +37,7 @@ public:
     void Utf8ToGB2312( char* gbbuf , int nlen ,QString& utf8);
     QString GB2312ToUtf8( char* gbbuf );
 private:
-    Dialog * m_mainWnd;
+    MyChatDialog * m_mainWnd;
     LoginDialog * m_loginWnd;
     INetMediator * m_tcpClient;
 

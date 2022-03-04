@@ -26,7 +26,6 @@ private slots:
     void slot_LOGIN_ATTENTION();
 private:
     Ui::LoginDialog *ui;
-
 };
 
 #endif // LOGINDIALOG_H

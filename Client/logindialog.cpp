@@ -81,7 +81,7 @@ void LoginDialog::slot_REGISTER_ATTENTION()
 }
 void LoginDialog::slot_LOGIN_ATTENTION()
 {
-    ui->login_attention->setText("该用户名不存在");
+    ui->login_attention->setText("用户名或密码错误");
     ui->login_error->setVisible(true);
     ui->login_attention->setVisible(true);
 }

@@ -6,7 +6,7 @@
 //设置协议映射关系
 void CKernel::setProtocolMap()
 {
-    //memset(m_NetProtocolMap,0,sizeof(m_NetProtocolMap));
+    memset(m_NetProtocolMap,0,sizeof(m_NetProtocolMap));
     m_NetProtocolMap[_DEF_PACK_REGISTER_RS - _DEF_PROTOCOL_BASE] = &CKernel::slot_registerRs;
     m_NetProtocolMap[_DEF_PACK_LOGIN_RS - _DEF_PROTOCOL_BASE   ] = &CKernel::slot_loginRs;
 }
@@ -23,16 +23,28 @@ CKernel::CKernel(QObject *parent) : QObject(parent)
         delete m_tcpClient;
         exit(0);
     }
-    //STRU_LOGIN_RQ rs;
-    //m_tcpClient->SendData(0,(char*)&rs,sizeof(rs));
-    //m_mainWnd = new Dialog;
-    //m_mainWnd->show();
     m_loginWnd = new LoginDialog;
     connect(m_loginWnd,SIGNAL(SIG_LOGIN_RQ(QString,QString)),this,SLOT(slot_LOGIN_RQ(QString,QString)));
     connect(m_loginWnd,SIGNAL(SIG_REGISTER_RQ(QString,QString)),this,SLOT(slot_REGISTER_RQ(QString,QString)));
     connect(this,SIGNAL(SIG_REGISTER_ATTENTION()),m_loginWnd,SLOT(slot_REGISTER_ATTENTION()));
     connect(this,SIGNAL(SIG_LOGIN_ATTENTION()),m_loginWnd,SLOT(slot_LOGIN_ATTENTION()));
     m_loginWnd->show();
+    m_mainWnd = new MyChatDialog;
+    for( int i = 0 ; i< 5 ;++i)
+    {
+        userItem * item = new userItem;
+        item->slot_setInfo( i+1 , QString("用户%1").arg(i+1)
+                            ,1, i+1 );
+        m_mainWnd->slot_addFriend( item );
+    }
+    for( int i = 5 ; i< 10 ;++i)
+    {
+        userItem * item = new userItem;
+        item->slot_setInfo( i+1 , QString("用户%1").arg(i+1)
+                            ,0, i+1 );
+        m_mainWnd->slot_addFriend( item );
+    }
+    //m_mainWnd->show();
 }
 
 void CKernel::DestroyedInstance()//退出，回收m_mainWnd,m_tcpClient
@@ -97,7 +109,14 @@ void CKernel::slot_loginRs(char* buf, int nlen)
     case user_is_exist:
         Q_EMIT SIG_LOGIN_ATTENTION();
         break;
-    case register_success:
+    case password_error:
+        Q_EMIT SIG_LOGIN_ATTENTION();
+        break;
+    case login_success:
+    {
+        m_loginWnd->hide();
+        m_mainWnd->showNormal();//show(), showNomal()
+    }
         break;
     }
 }
